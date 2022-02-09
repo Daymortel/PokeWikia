@@ -2,11 +2,12 @@ const Joi = require("joi");
 
 function validate(obj) {
   const schema = Joi.object({
+    pseudo : Joi.string().required(),
     mail : Joi.string().email({
       minDomainSegments : 2,
       tlds : { allow : ["com", "net", "fr"] }
     }).required(),
-    password : Joi.string().pattern(new RegExp("[a-zA-Z0-9]{8,20}$")).required();
+    password : Joi.string().pattern(new RegExp("[a-zA-Z0-9]{8,20}$")).required()
   });
   return schema.validate(obj);
 }

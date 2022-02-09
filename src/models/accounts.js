@@ -1,11 +1,6 @@
 const mongoose = require("mongoose");
-const { v4: uuidv4 } = require('uuid');
 
-const schema = new mongoose.Shema({
-  id : {
-    type : uuidv4(),
-    unique : true
-  },
+const schema = new mongoose.Schema({
   pseudo : {
     type : String,
     minLength : 3,
